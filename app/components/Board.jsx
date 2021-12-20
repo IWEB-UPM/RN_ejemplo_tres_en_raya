@@ -1,5 +1,6 @@
 import React from 'react';
 import Square from './Square';
+import {View, Text, StyleSheet} from 'react-native';
 
 export default function Board(props) {
   function boardClick(rowNumber, columnNumber) {
@@ -14,16 +15,30 @@ export default function Board(props) {
       );
    });
    return (
-      <div key={"row" + rowIndex}>
+      <View style={styles.boardRow} key={"row" + rowIndex}>
         {row}
-      </div>
+      </View>
     );
   });
 
   return (
-     <div>
+     <View style={styles.board}>
       {board}
-     </div>
+     </View>
   );
   
 }
+
+const styles = StyleSheet.create({
+  board: {
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'space-between'
+  },
+  boardRow: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  }
+
+});

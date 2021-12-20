@@ -1,3 +1,5 @@
+import {View, Text} from 'react-native';
+
 import React, { useState, useEffect } from 'react';
 import Header from './Header.jsx';
 import Board from './Board.jsx';
@@ -17,7 +19,7 @@ export default function App(props) {
 
   useEffect(() => {
     // Update the document title using the browser API
-    document.title = `Turn of ${turn}`;
+    //document.title = `Turn of ${turn}`;
   });
 
   useEffect(() => {
@@ -56,12 +58,12 @@ export default function App(props) {
   let text = "Turn of " + turn;
 
   return (
-    <div>
+    <View style={{flex:1, margin: 30}}>
       <Header text={text}/>
       <Board values={values}  appClick={appClick}/>
-      <h3>Number of moves: {moves}</h3>
+      <Text style={{fontSize: 25, padding: 30, textAlign:'center'}}>Number of moves: {moves}</Text>
       <Reset resetClick={resetClick}></Reset>
-    </div>
+    </View>
   );
 
 

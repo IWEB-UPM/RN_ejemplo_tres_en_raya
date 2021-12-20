@@ -1,4 +1,5 @@
 import React from 'react';
+import {TouchableHighlight, Text, StyleSheet} from 'react-native';
 
 const squareStyle = {
   height: '100px',
@@ -14,9 +15,26 @@ export default function Square(props) {
   }
 
   return(
-    <button style={squareStyle} onClick={squareClick} className={props.value === "-" ? "clickable" : "no_clickable"}>
-      {props.value}
-    </button>
+    <TouchableHighlight style={styles.square} onPress={squareClick} disabled={props.value != '-'}>
+      <Text style={styles.squareText}>
+        {props.value}
+      </Text> 
+    </TouchableHighlight>
   );
   
 }
+
+const styles = StyleSheet.create({
+  square: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: 1,
+    borderColor: 'black',
+    backgroundColor: '#eee'
+  },
+  squareText: {
+    fontSize: 60
+  }
+
+});

@@ -1,16 +1,16 @@
 import React from 'react';
-import {Card} from 'react-bootstrap';
+import {View, Text, StyleSheet} from 'react-native';
 
 export default function Header(props) {
     return (
-      <Card style={{ width: '18rem' }}>
-        <Card.Body>
-          <Card.Title>Turn</Card.Title>
-          <Card.Text>
-            {props.text}
-            
-          </Card.Text>
-        </Card.Body>
-      </Card>
+      <Text style={styles.header}>Turn: {props.text}</Text>
     );
-    }
+}
+
+const styles = StyleSheet.create({
+  header: { 
+    textAlign: 'center',
+    fontSize: 25,
+    padding: 30
+  }
+});
